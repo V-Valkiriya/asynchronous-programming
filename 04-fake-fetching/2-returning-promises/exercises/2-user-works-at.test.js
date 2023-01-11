@@ -6,10 +6,20 @@ const { log } = labeledLogger();
 
 // --- declare function ---
 
-/**
+/** A function that fetches a user and returns their id, username and email.
+ *
+ * @param {number} userId - The user ID to fetch.
+ * @param {string} name of company.
+ * @returns {Promise<boolean>} A promise that resolves to the result of checking the company name.
+ *
+ * @throws {Error} {status number}: {status text}
  *
  */
-const userWorksAt = () => {};
+const userWorksAt = (id, company) => {
+  return fetchUserById(id).then((user) => (company === `${user.company.name}`))
+  };
+
+
 
 // --- test function ---
 

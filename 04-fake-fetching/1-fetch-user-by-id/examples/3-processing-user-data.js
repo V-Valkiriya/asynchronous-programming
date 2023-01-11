@@ -28,7 +28,7 @@ fetchUserById(1)
 log('fetching user 5');
 fetchUserById(5)
   .then((user) => createIntroduction(user))
-  // 51: Hello, my name is Chelsey Dietrich"
+  // 5: Hello, my name is Chelsey Dietrich"
   .then((intro) => log(intro))
   .catch((err) => error(err));
 

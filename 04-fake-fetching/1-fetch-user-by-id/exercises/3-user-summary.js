@@ -9,6 +9,11 @@ const { log, error } = labeledLogger();
 
 const createSummary = (user) => {
   // write me!
+  return `{
+  name: ${user.name},
+  city: ${user.address.city},
+  companyName: ${user.company.name},
+  }`
 };
 
 const handleError = (err) => error(err);
@@ -21,7 +26,10 @@ log('fetching and processing user 5');
       city: 'Roscoeview',
       companyName: 'Keebler LLC'
     } */
-__;
+fetchUserById(5)
+.then((user) => createSummary(user))
+.then((contactInfo) => log(contactInfo))
+.catch((err) => handleError(err));
 
 log('fetching and processing user 1');
 /*  {
@@ -29,7 +37,10 @@ log('fetching and processing user 1');
       city: 'Gwenborough',
       companyName: 'Romaguera-Crona',
     } */
-__;
+fetchUserById(1)
+.then((user) => createSummary(user))
+.then((contactInfo) => log(contactInfo))
+.catch((err) => handleError(err));
 
 log('fetching and processing user 10');
 /*  {
@@ -37,10 +48,16 @@ log('fetching and processing user 10');
       city: 'Lebsackbury',
       companyName: 'Hoeger LLC',
     } */
-__;
+fetchUserById(10)
+.then((user) => createSummary(user))
+.then((contactInfo) => log(contactInfo))
+.catch((err) => handleError(err));;
 
 log('fetching and processing user -1');
 // 404
-__;
+fetchUserById(-1)
+.then((user) => createSummary(user))
+.then((contactInfo) => log(contactInfo))
+.catch((err) => handleError(err));;
 
 log('= = = =  the call stack is empty  = = = =');

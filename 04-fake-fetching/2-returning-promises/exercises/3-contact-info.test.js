@@ -6,10 +6,17 @@ const { log } = labeledLogger();
 
 // --- declare function ---
 
-/**
+/** A function that fetches a user and returns massive with their email, phone and website.
+ *
+ * @param {number} userId - The user ID to fetch.
+ * @returns {Promise<string>} A promise that resolves to the massive with email, phone and website.
+ *
+ * @throws {Error} {status number}: {status text}
  *
  */
-const contactInfo = () => {};
+const contactInfo = (id) => {
+  return fetchUserById(id).then((user) => [user.email, user.phone, user.website,])
+};
 
 // --- test function ---
 
